@@ -13,7 +13,7 @@ var isObject = isType("Object")
 var isFunction = isType("Function")
 var isArray = Array.isArray || isType("Array")
 var isString = isType("String")
-
+var isDate = isType("Date")
 
 function tostr(data /* private params*/, indent) {
   indent = indent || 2
@@ -49,8 +49,12 @@ function tostr(data /* private params*/, indent) {
     return data.toString()
   }
 
+  if (isDate(data)) {
+    return "new Date('" + data.toString() + "')"
+  }
+
   if (isString(data)) {
-    return inspect(data)
+    return inspect(data).replace(/^\[String: (.*)\]$/, '$1')
   }
 
   return data
@@ -58,6 +62,3 @@ function tostr(data /* private params*/, indent) {
 
 
 module.exports = tostr
-
-
-
