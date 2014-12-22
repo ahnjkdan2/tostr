@@ -1,6 +1,6 @@
 {
   "name": "tostr",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Convert object to string.",
   "homepage": "https://github.com/fool2fish/tostr",
   "keywords": [
